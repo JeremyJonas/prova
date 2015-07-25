@@ -159,6 +159,16 @@ Use comma to separate multiple plugins;
 $ node test -b --plugin foo,bar
 ```
 
+### Browserify Args
+
+Pass args directly to Browserify passing `--browserify` parameter;
+
+```bash
+$ node test -b --browserify "--extension .foo -t [ fooify --bar ]"
+```
+
+Can **not** be used with automatic transforms and plugins; `-t`,`--transform`,`-u`,`--plugin` args will be ignored by prova when passing `--browserify`.
+
 ### Custom Frame Documents
 
 When you're running the tests on the browser, Prova has an empty HTML template that loads and runs the JavaScript tests.
@@ -232,6 +242,7 @@ Assuming that you'll be running your tests on `:7559`, any requests to `/my-api`
           -v     --version       Show version and exit
           -h     --help          Show help and exit
                  --examples      Show example commands
+                 --browserify    Args string to instantiate Browserify. e.g node test -b --browserify "--extension .foo -t [ fooify --bar ]"
 ```
 
 ## Example Commands
